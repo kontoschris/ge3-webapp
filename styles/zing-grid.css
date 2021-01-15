@@ -1,0 +1,33 @@
+zing-grid {
+  background: #eeeeee;
+  font-size: 1.2rem;
+  padding: 10px;
+  box-shadow: 0 0 9px rgba(0, 0, 0, 0.15);
+}
+zg-caption {
+  background-color: 003749;
+  color: white;
+  font-weight: bold;
+  opacity: 0.6;
+  text-align: center;
+  transition: 0.3s opacity;
+  font-size: 18px;
+  height: ;
+}
+zg-caption:hover {
+  opacity: 1;
+}
+zg-head {
+  color: black;
+}
+zg-cell {
+  transition: 1s background-color;
+  font-size: 12px;
+  height: 5px;
+}
+zg-cell:hover {
+  background-color: white;
+}
+zg-body zg-row:nth-child(odd) {
+  background-color: rgb(182, 241, 253);
+}
