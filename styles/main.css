@@ -304,3 +304,84 @@ main,
 }
 #mapid { height: 180px; }
 
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  padding-bottom: 20px;
+  padding-right: 5px;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.my_style1 .webix_hcell{
+  background:#009966;
+  color:white;
+  font-weight:bold;
+
+}
+.my_style1 .webix_column{
+  font-style:italic;
+  background:#ddFFdd;
+}
+.my_style1 .webix_column > div{
+  border-color:#ddd;
+}
+
+
+
+
+.my_style2 .webix_hcell{
+  background:#300099;
+  color:white;
+  font-weight:bold;
+
+}
+.my_style2 .webix_column{
+  font-style:italic;
+  background:#d5e8ff;
+}
+.my_style2 .webix_column > div{
+  border-color:#ddd;
+}
+
+.my_style_but1{
+  background:#009966;
+
+}
+.my_style_but2{
+  background:#300099;
+
+}
+
+.webix-calendar1{
+  margin: 5px;
+  background-color:#ddFFdd;;
+  border-color:#ddFFdd;
+  border-width: 2px;
+  border-style: solid;
+}
+.webix-calendar2{
+  margin: 5px;
+  background-color:#d5e8ff;;
+  border-color:#d5e8ff;
+  border-width: 2px;
+  border-style: solid;
+}

@@ -10,13 +10,14 @@ var mainLeftTab = {
   view: "tabview",
   cells: [
     {
-      header: "List of Guides",
+      header: "Guides",
       body: {
         type: "clean",
         rows: [
           {
             id: "dtableGuides",
             view: "datatable",
+            css: "my_style1",
             height: 300,
             editable: true,
             editaction: "dblclick",
@@ -41,22 +42,73 @@ var mainLeftTab = {
             save: "firebase->Guides_new",
           },
           {
-            view: "label",
-            css: "label-info-box",
-            label:
-              "<b>Info: </b><u>Double click on field for edit. Values saved automatic!</u>",
+            view: "toolbar",
+            elementsConfig: {
+              autowidth: true,
+            },
+            elements: [
+              {
+                view: "button",
+                value: "Add",
+                css: "my_style_but1",
+                click: function () {
+                  webix.message("Add Guide - Not completed in this version");
+                  firebase.analytics().logEvent("Add Guide");
+                },
+              },
+              {
+                view: "button",
+                value: "Edit",
+                css: "my_style_but1",
+                click: function () {
+                  webix.message("Edit Guide - Not completed in this version");
+                  firebase.analytics().logEvent("Guide-Edit");
+                },
+              },
+              {
+                view: "button",
+                value: "Delete",
+                css: "my_style_but1",
+                click: function () {
+                  webix.message("Delete Guide - Not completed in this version");
+                  firebase.analytics().logEvent("Guide-Delete ");
+                },
+              },
+              {
+                view: "button",
+                value: "Assign Guide to Active Route >>",
+                css: "my_style_but1",
+                click: function () {
+                  webix.message(
+                    "Assign Guide to Active Route - Not completed in this version"
+                  );
+                  firebase.analytics().logEvent("Guide-Assign");
+                },
+              },
+            ],
+          },
+          {
+            view: "calendar",
+            id: "my_calendar2",
+            css: "webix-calendar1",
+            date: new Date(2021, 2, 15),
+            weekHeader: true,
+            events: webix.Date.isHoliday,
+            width: 300,
+            height: 250,
           },
         ],
       },
     },
     {
-      header: "List of Vehicles",
+      header: "Vehicles",
       body: {
         type: "clean",
         rows: [
           {
             id: "dtableVehicles",
             view: "datatable",
+            css: "my_style2",
             editable: true,
             height: 300,
             editaction: "dblclick",
@@ -80,18 +132,69 @@ var mainLeftTab = {
             // save data to Transport
             save: "firebase->Transport",
           },
-
           {
-            view: "label",
-            css: "label-info-box",
-            label:
-              "<b>Info: </b><u>Double click on field for edit. Values saved automatic!</u>",
+            view: "toolbar",
+            elementsConfig: {
+              autowidth: true,
+            },
+            elements: [
+              {
+                view: "button",
+                value: "Add",
+                css: "my_style_but2",
+                click: function () {
+                  webix.message("Add Vehicle - Not completed in this version");
+                  firebase.analytics().logEvent("Vehicle-Add");
+                },
+              },
+              {
+                view: "button",
+                value: "Edit",
+                css: "my_style_but2",
+                click: function () {
+                  webix.message("Edit Vehicle - Not completed in this version");
+                  firebase.analytics().logEvent("Vehicle-Edit");
+                },
+              },
+              {
+                view: "button",
+                value: "Delete",
+                css: "my_style_but2",
+                click: function () {
+                  webix.message(
+                    "Delete Vehicle - Not completed in this version"
+                  );
+                  firebase.analytics().logEvent("Vehicle-Delete");
+                },
+              },
+              {
+                view: "button",
+                value: "Assign Vehicle to Active Route >>",
+                css: "my_style_but2",
+                click: function () {
+                  webix.message(
+                    "Assign Vehicle to Active Route - Not completed in this version"
+                  );
+                  firebase.analytics().logEvent("Vehicle-Assign");
+                },
+              },
+            ],
+          },
+          {
+            view: "calendar",
+            id: "my_calendar",
+            css: "webix-calendar2",
+            date: new Date(2021, 2, 15),
+            weekHeader: true,
+            events: webix.Date.isHoliday,
+            width: 300,
+            height: 250,
           },
         ],
       },
     },
     {
-      header: "Route Management",
+      header: "Default Routes",
       body: {
         type: "clean",
         rows: [
@@ -127,6 +230,12 @@ var mainLeftTab = {
               onItemClick: function (id, e, trg, cell) {
                 clearMap();
                 AddRoute(id.row);
+                webix.message(
+                  "Select Default Route " +
+                    id.row +
+                    " (Not completed in this version)"
+                );
+                firebase.analytics().logEvent("Default Route-Select");
               },
             },
 
@@ -150,21 +259,30 @@ var mainLeftTab = {
                 view: "button",
                 value: "Add marker",
                 click: function () {
-                  webix.message("Not completed in this version");
+                  webix.message(
+                    "Add marker to default Route - Not completed in this version"
+                  );
+                  firebase.analytics().logEvent("Default Route-Add Marker");
                 },
               },
               {
                 view: "button",
                 value: "Clear All",
                 click: function () {
-                  webix.message("Not completed in this version");
+                  webix.message(
+                    "Clear All to default Route - Not completed in this version"
+                  );
+                  firebase.analytics().logEvent("Default Route-Clear All");
                 },
               },
               {
                 view: "button",
                 value: "Hide/show",
                 click: function () {
-                  webix.message("Not completed in this version");
+                  webix.message(
+                    "Hide/show default Route - Not completed in this version"
+                  );
+                  firebase.analytics().logEvent("Default Route-Hide/show");
                 },
               },
             ],
@@ -243,10 +361,10 @@ var gridActiveRoutes = {
       select: "row",
       on: {
         onItemClick: function (id, e, trg, cell) {
-          // webix.message("Click on row: " + id.row + ", column: " + id.column);
-          // console.log(arguments);
-          // clearMap();
-          // AddRoute(id.row);
+          webix.message(
+            "Select Active Route " + id.row + " (Not completed in this version)"
+          );
+          firebase.analytics().logEvent("Active Route-Select");
         },
       },
       // load data from Routes
@@ -393,18 +511,9 @@ var actions = {
     { action: "Show current position (live view)" },
   ],
   on: {
-    onItemClick: function (id) {
-      webix.message("Not completed in this version");
-    },
+    onItemClick: function (id) {},
   },
   click: function () {
-    // var form = this.getFormView();
-    // var values = form.getValues();
-    // var grid = form.config.masterView;
-    // var id = form.config.masterId;
-
-    // grid.updateItem(id, { person: values });
-    // $$("master-view").show();
     webix.message("Not completed in this version");
   },
 };
@@ -445,6 +554,12 @@ var grid = {
     onItemClick: function (id) {
       $$("details-view").show();
       $$("details-list").select(id.row);
+      webix.message(
+        "Active Route Details Row = " +
+          id.row +
+          " (Not completed in this version)"
+      );
+      firebase.analytics().logEvent("Active Route-Details Row");
 
       var view = $$("details");
       view.setValues(this.getItem(id).person);
@@ -484,8 +599,8 @@ var fields = [
     view: "button",
     value: "Edit",
     click: function () {
-      analytics.logEvent("ActiveRoute", { name: "Edit-btn" });
-      webix.message("Not completed in this version");
+      webix.message("Active Route-Edit - Not completed in this version");
+      firebase.analytics().logEvent("Active Route-Edit");
     },
   },
   {
@@ -494,8 +609,8 @@ var fields = [
     view: "button",
     value: "Save",
     click: function () {
-      webix.message("Not completed in this version");
-      analytics.logEvent("ActiveRoute", { name: "Save-btn" });
+      webix.message("Active Route-Save - Not completed in this version");
+      firebase.analytics().logEvent("Active Route-Save");
     },
   },
 ];
@@ -516,7 +631,8 @@ var details = {
           width: 100,
           click: function () {
             $$("master-view").show();
-            analytics.logEvent("ActiveRoute", { name: "ShowDetails" });
+            webix.message("Active Route-Hide - Not completed in this version");
+            firebase.analytics().logEvent("Active Route-Hide");
           },
         },
       ],
@@ -541,6 +657,10 @@ var list = {
       var view = $$("details");
       view.setValues(this.getItem(id).person);
       view.config.masterId = id;
+      webix.message("Active Route-Change Row - Not completed in this version");
+      firebase
+        .analytics()
+        .logEvent("Active Route-Change Row - Not completed in this version");
     },
   },
 };
@@ -584,28 +704,42 @@ var mapActiveRoutes = {
           view: "button",
           value: "Show only start/end of route",
           click: function () {
-            webix.message("Not completed in this version");
-            analytics.logEvent("ActiveRouteMaps", {
-              name: "Show only start/end of route",
-            });
+            webix.message(
+              "Active Route Show only start/end of route - Not completed in this version"
+            );
+            firebase
+              .analytics()
+              .logEvent(
+                "Active Route Show only start/end of route - Not completed in this version"
+              );
           },
         },
         {
           view: "button",
           value: "Show all points of interest",
           click: function () {
-            webix.message("Not completed in this version");
-            analytics.logEvent("ActiveRouteMaps", {
-              name: "Show all points of interest",
-            });
+            webix.message(
+              "Active Route Show all points of interest - Not completed in this version"
+            );
+            firebase
+              .analytics()
+              .logEvent(
+                "Active Route Show all points of interest - Not completed in this version"
+              );
           },
         },
         {
           view: "button",
           value: "Clear map",
           click: function () {
-            webix.message("Not completed in this version");
-            analytics.logEvent("ActiveRouteMaps", { name: "Clear map" });
+            webix.message(
+              "Active Route Clear map - Not completed in this version"
+            );
+            firebase
+              .analytics()
+              .logEvent(
+                "Active Route Clear map - Not completed in this version"
+              );
           },
         },
       ],

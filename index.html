@@ -54,8 +54,13 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
     />
+    <link rel="stylesheet" href="//cdn.webix.com/materialdesignicons/5.8.95/css/materialdesignicons.min.css" type="text/css" 
+    charset="utf-8">
+
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <!-- MY Styles-->
     <link rel="stylesheet" href="styles/main.css" />
+    
 
     <!-- // *** Leaflet code that we didn't use..... *** -->
     <!-- LEAFLET Code -->
@@ -89,9 +94,9 @@
       }
     </style>
     <script
-      type="text/javascript"
-      src="//script.crazyegg.com/pages/scripts/0102/0070.js"
-      async="async"
+      //type="text/javascript"
+      //src="//script.crazyegg.com/pages/scripts/0102/0070.js"
+      //async="async"
     ></script>
   </head>
 
@@ -113,6 +118,39 @@
       <section
         class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
       >
+
+      <ul class="mdc-list" style="padding-top: 30px;">
+        <li class="mdc-list-item" style="background-color:#009966; color: white;">
+          <span class="mdc-list-item__ripple"></span>
+          <span class="mdc-list-item__text"><i class="material-icons">face</i></span>Active Guides: <strong><span style="padding-left: 5px;">5/10</span></strong>
+        </li>
+      </ul>
+
+      <ul class="mdc-list" style="padding-top: 30px;">
+        <li class="mdc-list-item" style="background-color:#300099; color: white;">
+          <span class="mdc-list-item__ripple"></span>
+          <span class="mdc-list-item__text" style="text-decoration: underline ;padding: 2px;"><i class="material-icons">directions_car</i></span>Active Vehicles:<strong ><span style="padding-left: 5px;">4/12</span></strong></span>
+        </li>
+      </ul>
+      <ul class="mdc-list" style="padding-top: 30px;">
+        <li class="mdc-list-item" style="background-color: gold;">
+          <span class="mdc-list-item__ripple"></span>
+          <span class="mdc-list-item__text" style="text-decoration: underline ;padding-top: 6px;padding-right: 10px;"><i class="material-icons">edit_location</i>Active routes: <strong><span style="padding-left: 5px;">5</span></strong></span>
+        </li>
+      </ul>
+
+      </section>
+
+      <section
+        class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
+      >
+      <button
+      class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded"
+      aria-label="Download"
+    >
+      calendar_today
+    </button>
+
         <button
           class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded"
           aria-label="Download"
@@ -177,7 +215,7 @@
       firebase.analytics();
       // create firebase connection, and assign it to webix
       webix.firebase = firebase.database();
-
+      firebase.analytics().logEvent('Load first page');
       //loading ROute data from firebase to javascript array
       var ArrayOfRoutes = loadRoutesCoordinates(webix.firebase);
 
@@ -186,60 +224,7 @@
       //console.log("ArrayOfRequests" + ArrayOfRequests);
       //console.log(ArrayOfRequests);
 
-      //let map;
-
-      // *** Leaflet code that we didn't use..... ***
-      // var leadsRef = webix.firebase.ref("Routes");
-      // leadsRef.once("value").then(function (snapshot) {
-      //   var key = snapshot.key; // "ada"
-      //   var fbKey;
-      //   snapshot.forEach(function (data) {
-      //     var val = data;
-      //     fbKey = data.key;
-      //     console.log(fbKey);
-      //     console.log(data.val());
-      //     var extraData = data.child("endPoint/latitude").val(); // "last"
-      //     console.log(extraData);
-      //   });
-      // });
-
-      // leadsRef.on("value", function (snapshot) {
-      //   snapshot.forEach(function (childSnapshot) {
-      //     var childData = childSnapshot.val();
-      //     //console.log(typeof childData);
-      //     //console.log(childData);
-      //   });
-      // });
-
-      // leadsRef.on("value", function (snapshot) {
-      //   snapshot.forEach(function (data) {
-      //     var val = data;
-      //     var fbKey = data.key;
-      //     //console.log(fbKey);
-      //   });
-      // });
+      
     </script>
-
-    <!-- *** Leaflet code that we didn't use..... *** -->
-    <!-- Leaflet Map Code -->
-    <!-- <script>
-      var mymap = L.map("mapid").setView([51.505, -0.09], 3);
-
-      L.tileLayer(
-        "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
-        {
-          maxZoom: 18,
-          attribution:
-            'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-          id: "mapbox/streets-v11",
-          tileSize: 512,
-          zoomOffset: -1,
-        }
-      ).addTo(mymap);
-      var marker = L.marker([51.5, -0.09]).addTo(mymap);
-    </script> -->
-    <!-- ^^^^ Leaflet Map Code -->
   </body>
 </html>
