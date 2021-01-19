@@ -557,7 +557,7 @@ var grid = {
       webix.message(
         "Active Route Details Row = " +
           id.row +
-          " (Not completed in this version)"
+          " (Not completed in this version) "
       );
       firebase.analytics().logEvent("Active Route-Details Row");
 
