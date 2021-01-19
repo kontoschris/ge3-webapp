@@ -213,16 +213,14 @@
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
-      // create firebase connection, and assign it to webix
+      // create firebase connection, and assign it to webix 
       webix.firebase = firebase.database();
+      //add main analytics code
       firebase.analytics().logEvent('Load first page');
+
       //loading ROute data from firebase to javascript array
       var ArrayOfRoutes = loadRoutesCoordinates(webix.firebase);
-
-      //var ArrayOfRequests = [[], []]; // empty, staggered 2-dimensional array...
       var ArrayOfRequests = loadRequestData(webix.firebase);
-      //console.log("ArrayOfRequests" + ArrayOfRequests);
-      //console.log(ArrayOfRequests);
 
       
     </script>
