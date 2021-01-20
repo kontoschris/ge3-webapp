@@ -231,9 +231,7 @@ var mainLeftTab = {
                 clearMap();
                 AddRoute(id.row);
                 webix.message(
-                  "Select Default Route " +
-                    id.row +
-                    " (Not completed in this version)"
+                  "Select Default Route (Not completed in this version)"
                 );
                 firebase.analytics().logEvent("Default Route-Select");
               },
